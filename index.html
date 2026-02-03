@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Exam Seat Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>College Exam Seat Planner</h1>
+            <p>Efficient classroom allocation system</p>
+        </header>
+
+        <main>
+            <!-- Add Classroom Section -->
+            <section class="card">
+                <h2>Add Classroom</h2>
+                <form id="addClassroomForm">
+                    <div class="form-group">
+                        <label for="roomId">Room ID:</label>
+                        <input type="text" id="roomId" required placeholder="e.g., R101">
+                    </div>
+                    <div class="form-group">
+                        <label for="capacity">Capacity:</label>
+                        <input type="number" id="capacity" required min="1" placeholder="e.g., 50">
+                    </div>
+                    <div class="form-group">
+                        <label for="floorNo">Floor Number:</label>
+                        <input type="number" id="floorNo" required min="0" placeholder="e.g., 1">
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <label>
+                            <input type="checkbox" id="nearWashroom">
+                            Near Washroom
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Classroom</button>
+                </form>
+            </section>
+
+            <!-- View All Classrooms Section -->
+            <section class="card">
+                <div class="section-header">
+                    <h2>All Classrooms</h2>
+                    <button id="clearAllBtn" class="btn btn-danger btn-sm" style="display: none;">Clear All</button>
+                </div>
+                <div id="classroomList">
+                    <p class="empty-message">No classrooms added yet.</p>
+                </div>
+            </section>
+
+            <!-- Allocate Exam Section -->
+            <section class="card">
+                <h2>Allocate Exam Seats</h2>
+                <form id="allocateForm">
+                    <div class="form-group">
+                        <label for="totalStudents">Total Students:</label>
+                        <input type="number" id="totalStudents" required min="1" placeholder="e.g., 150">
+                    </div>
+                    <button type="submit" class="btn btn-success">Allocate Rooms</button>
+                </form>
+            </section>
+
+            <!-- Allocation Result Section -->
+            <section class="card" id="resultSection" style="display: none;">
+                <h2>Allocation Result</h2>
+                <div id="allocationResult"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
