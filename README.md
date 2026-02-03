@@ -34,53 +34,6 @@ The application uses a **greedy allocation approach**:
   - Room C (Floor 1, Capacity 40)
 - **Allocation**: Room A (60), Room C (40), Room B (50) = 3 rooms
 
-## Installation & Setup
-
-### Local Development
-
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd college-exam-seat-planner
-```
-
-2. Open `index.html` in a web browser:
-```bash
-# Using Python
-python -m http.server 8000
-
-# Or simply open the file
-open index.html
-```
-
-### Deployment on Netlify
-
-1. Create a new site on [Netlify](https://www.netlify.com)
-2. Connect your GitHub repository
-3. Deploy settings:
-   - Build command: (leave empty)
-   - Publish directory: `/`
-4. Click "Deploy site"
-
-### Deployment on Vercel
-
-1. Install Vercel CLI:
-```bash
-npm i -g vercel
-```
-
-2. Deploy:
-```bash
-vercel
-```
-
-### Deployment on GitHub Pages
-
-1. Go to repository Settings > Pages
-2. Select branch: `main`
-3. Select folder: `/ (root)`
-4. Save and wait for deployment
-
 ## Usage Guide
 
 ### Adding a Classroom
@@ -105,13 +58,6 @@ vercel
    - Success: Shows allocated rooms with floor preference
    - Failure: Shows "Not enough seats available" message
 
-## Error Handling
-
-- Duplicate room IDs not allowed
-- Invalid capacity/floor numbers rejected
-- Zero or negative student counts rejected
-- Insufficient capacity handled gracefully
-
 ## File Structure
 
 ```
@@ -135,38 +81,6 @@ Renders classroom list in table format
 
 ### `saveClassrooms()` / `loadClassrooms()`
 Handles data persistence using localStorage
-
-## Testing Scenarios
-
-### Test Case 1: Normal Allocation
-- Add: R101 (Floor 0, Cap 50), R201 (Floor 1, Cap 60)
-- Allocate: 80 students
-- Expected: R101 (50), R201 (30)
-
-### Test Case 2: Insufficient Capacity
-- Add: R101 (Floor 0, Cap 30)
-- Allocate: 50 students
-- Expected: "Not enough seats available"
-
-### Test Case 3: Multiple Floor Preference
-- Add: R301 (Floor 2, Cap 40), R101 (Floor 0, Cap 30), R201 (Floor 1, Cap 35)
-- Allocate: 70 students
-- Expected: R101 (30), R201 (35), R301 (5) - Lower floors preferred
-
-## Browser Compatibility
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## Future Enhancements
-
-- Export allocation results to PDF
-- Room deletion functionality
-- Edit existing classrooms
-- Multiple exam scheduling
-- Database integration
 
 ## License
 
